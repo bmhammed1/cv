@@ -1,1 +1,449 @@
+<!doctype html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CV Médecin</title>
+<meta name="description" content="Curriculum vitae d'un médecin au Maroc — Français, العربية, English">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&family=Inter:wght@400;500;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1c2733;
+    --muted: #5b6878;
+    --accent: #0f5e6e;
+    --accent-soft: #e4f0f1;
+    --line: #d9e1e7;
+    --side: #0f3b47;
+    --side-ink: #e8f1f3;
+    --side-muted: #a9c3c9;
+    --page: #ffffff;
+    --bg: #eef2f4;
+    --font: "Inter", system-ui, sans-serif;
+    --font-head: "Source Serif 4", Georgia, serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg: #151b20; }
+  }
+  :root[data-theme="dark"] { --bg: #151b20; }
 
+  html[lang="ar"] {
+    --font: "IBM Plex Sans Arabic", "Inter", sans-serif;
+    --font-head: "IBM Plex Sans Arabic", serif;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 14px/1.55 var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- Toolbar ---------- */
+  .toolbar {
+    position: sticky; top: 0; z-index: 10;
+    display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+    padding: 12px 16px;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(6px);
+  }
+  .toolbar button {
+    font: 500 13px/1 var(--font);
+    padding: 9px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: #fff; color: var(--ink);
+    cursor: pointer;
+  }
+  .toolbar button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .toolbar .print { margin-inline-start: 12px; }
+  .toolbar button[lang="ar"] { font-family: "IBM Plex Sans Arabic", sans-serif; }
+
+  /* ---------- Page ---------- */
+  .page {
+    width: 210mm; min-height: 297mm;
+    margin: 8px auto 40px;
+    background: var(--page);
+    display: grid; grid-template-columns: 72mm 1fr;
+    box-shadow: 0 10px 40px rgba(15, 40, 50, .12);
+  }
+
+  aside {
+    background: var(--side); color: var(--side-ink);
+    padding: 34px 26px;
+  }
+  .avatar {
+    width: 112px; height: 112px; border-radius: 50%;
+    margin: 0 auto 26px;
+    display: grid; place-items: center;
+    background: #ffffff1a; border: 3px solid #ffffff40;
+    font: 600 34px/1 var(--font-head); color: #fff; letter-spacing: 1px;
+    overflow: hidden;
+  }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; }
+  aside h2 {
+    font: 600 11.5px/1 var(--font); letter-spacing: .14em; text-transform: uppercase;
+    color: var(--side-muted); margin: 26px 0 12px;
+    padding-bottom: 8px; border-bottom: 1px solid #ffffff26;
+  }
+  html[lang="ar"] aside h2 { letter-spacing: 0; font-size: 14px; }
+  aside ul { list-style: none; margin: 0; padding: 0; }
+  .contact li { display: flex; gap: 10px; align-items: flex-start; margin-bottom: 9px; font-size: 12.5px; word-break: break-word; }
+  .contact svg { flex: 0 0 15px; width: 15px; height: 15px; margin-top: 2px; stroke: var(--side-muted); }
+  .contact span[dir="ltr"] { unicode-bidi: isolate; }
+  .skills li { font-size: 12.5px; padding: 4px 0; }
+  .lang li { margin-bottom: 10px; font-size: 12.5px; }
+  .lang .row { display: flex; justify-content: space-between; gap: 8px; }
+  .lang .lvl { color: var(--side-muted); font-size: 11.5px; }
+  .bar { height: 4px; border-radius: 2px; background: #ffffff26; margin-top: 5px; }
+  .bar i { display: block; height: 100%; border-radius: 2px; background: #7fc8cf; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags li { font-size: 11.5px; padding: 4px 9px; border-radius: 999px; background: #ffffff17; }
+
+  main { padding: 38px 36px 34px; }
+  header.top { border-bottom: 2px solid var(--accent); padding-bottom: 18px; margin-bottom: 6px; }
+  .name { font: 700 34px/1.1 var(--font-head); margin: 0; letter-spacing: -.01em; }
+  html[lang="ar"] .name { font-size: 32px; letter-spacing: 0; }
+  .title { font: 600 15px/1.3 var(--font); color: var(--accent); margin: 8px 0 4px; }
+  .subtitle { color: var(--muted); font-size: 13px; margin: 0; }
+
+  main h2 {
+    display: flex; align-items: center; gap: 10px;
+    font: 600 13px/1 var(--font); letter-spacing: .12em; text-transform: uppercase;
+    color: var(--accent); margin: 24px 0 12px;
+  }
+  html[lang="ar"] main h2 { letter-spacing: 0; font-size: 16px; }
+  main h2::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+
+  .summary { margin: 0; color: #334252; text-align: justify; }
+
+  .entry { display: grid; grid-template-columns: 92px 1fr; gap: 14px; margin-bottom: 14px; break-inside: avoid; }
+  .when { font-size: 12px; font-weight: 600; color: var(--muted); padding-top: 2px; font-variant-numeric: tabular-nums; }
+  .entry h3 { font-size: 14px; font-weight: 600; margin: 0; }
+  .entry .org { color: var(--accent); font-size: 13px; margin: 1px 0 4px; }
+  .entry ul { margin: 4px 0 0; padding-inline-start: 18px; color: #3a4858; font-size: 13px; }
+  .entry li { margin-bottom: 2px; }
+  .entry p { margin: 2px 0 0; color: #3a4858; font-size: 13px; }
+
+  .pubs { margin: 0; padding-inline-start: 18px; font-size: 13px; color: #3a4858; }
+  .pubs li { margin-bottom: 6px; }
+  .pubs em { color: var(--accent); font-style: normal; font-weight: 500; }
+
+  footer.note { margin-top: 26px; padding-top: 10px; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); }
+
+  /* ---------- Responsive ---------- */
+  @media screen and (max-width: 860px) {
+    .page { width: auto; min-height: 0; margin: 8px 16px 32px; grid-template-columns: 1fr; }
+    aside { padding: 28px 22px; }
+    main { padding: 28px 22px; }
+    .entry { grid-template-columns: 1fr; gap: 2px; }
+    .name { font-size: 28px; }
+  }
+
+  /* ---------- Print ---------- */
+  @page { size: A4; margin: 0; }
+  @media print {
+    body { background: #fff; }
+    .toolbar { display: none; }
+    .page { margin: 0; box-shadow: none; width: 210mm; grid-template-columns: 72mm 1fr; }
+    aside, .bar i, .tags li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    main, aside { -webkit-box-decoration-break: clone; box-decoration-break: clone; padding-top: 30px; padding-bottom: 28px; }
+    main h2 { break-after: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="toolbar" aria-label="Langue / اللغة / Language">
+  <button type="button" data-lang="fr" lang="fr">Français</button>
+  <button type="button" data-lang="ar" lang="ar">العربية</button>
+  <button type="button" data-lang="en" lang="en">English</button>
+  <button type="button" class="print" id="printBtn">🖨 PDF</button>
+</nav>
+
+<article class="page" id="cv"></article>
+
+<script>
+/* =====================================================================
+   ✏️  MODIFIEZ VOS INFORMATIONS ICI / EDIT YOUR DETAILS HERE
+   Les informations personnelles (nom, contact) sont communes aux 3 langues.
+   Le contenu traduit se trouve dans l'objet CONTENT ci-dessous.
+   ===================================================================== */
+const PERSON = {
+  initials: "DR",
+  photo: "",                       // ex: "photo.jpg" (laisser vide pour les initiales)
+  phone: "+212 6 00 00 00 00",
+  email: "prenom.nom@email.ma",
+  linkedin: "linkedin.com/in/prenom-nom",
+  inpe: "INPE : 000000000",        // Identifiant National des Professionnels de Santé
+  cnom: "CNOM : 00000",            // N° d'inscription à l'Ordre National des Médecins
+  langLevels: [100, 95, 85, 40]    // % pour la barre de chaque langue (même ordre que languages)
+};
+
+const CONTENT = {
+  /* ------------------------------ FRANÇAIS ------------------------------ */
+  fr: {
+    dir: "ltr",
+    docTitle: "CV — Dr Prénom NOM, Médecin",
+    name: "Dr Prénom NOM",
+    title: "Médecin Généraliste — Urgences & Soins Primaires",
+    subtitle: "Doctorat en Médecine · Inscrit(e) au Conseil National de l'Ordre des Médecins du Maroc",
+    location: "Casablanca, Maroc",
+    h: {
+      contact: "Contact", skills: "Compétences cliniques", languages: "Langues",
+      it: "Informatique", interests: "Centres d'intérêt",
+      profile: "Profil professionnel", experience: "Expérience professionnelle",
+      education: "Formation", certs: "Certifications & formations complémentaires",
+      pubs: "Publications & communications", memberships: "Affiliations"
+    },
+    profile: "Médecin généraliste titulaire d'un Doctorat en Médecine de la Faculté de Médecine et de Pharmacie de Casablanca, fort(e) de plus de 5 ans d'expérience en milieu hospitalier universitaire, en urgences et en soins de santé primaires. Rigoureux(se), empathique et habitué(e) au travail en équipe pluridisciplinaire, je m'engage à offrir des soins de qualité fondés sur les preuves, dans le respect de l'éthique et de la déontologie médicale.",
+    experience: [
+      { when: "2023 — Auj.", role: "Médecin Généraliste", org: "Clinique Privée — Casablanca",
+        items: ["Consultations de médecine générale (≈ 40 patients/jour)", "Prise en charge des maladies chroniques : diabète, HTA, asthme", "Coordination avec les spécialistes et suivi des patients"] },
+      { when: "2021 — 2023", role: "Médecin des Urgences", org: "Centre Hospitalier Provincial — Ministère de la Santé et de la Protection Sociale",
+        items: ["Accueil, tri et prise en charge des urgences médico-chirurgicales", "Gestes d'urgence : réanimation cardio-pulmonaire, sutures, immobilisations", "Gardes de 24 h et encadrement des internes"] },
+      { when: "2020 — 2021", role: "Médecin Interne", org: "CHU Ibn Rochd — Casablanca",
+        items: ["Rotations : médecine interne, pédiatrie, gynéco-obstétrique, chirurgie générale", "Participation aux staffs et aux visites quotidiennes"] },
+      { when: "2019 — 2020", role: "Médecin bénévole — Caravanes médicales", org: "Association humanitaire — Régions rurales du Haut Atlas",
+        items: ["Consultations gratuites et dépistage du diabète et de l'HTA"] }
+    ],
+    education: [
+      { when: "2020", role: "Doctorat en Médecine", org: "Faculté de Médecine et de Pharmacie de Casablanca — Université Hassan II",
+        text: "Thèse : « Prise en charge du pied diabétique aux urgences » — Mention Très Honorable" },
+      { when: "2013 — 2020", role: "Études médicales (7 ans)", org: "Faculté de Médecine et de Pharmacie de Casablanca", text: "" },
+      { when: "2013", role: "Baccalauréat Sciences Expérimentales — Option SVT", org: "Lycée — Casablanca", text: "Mention Très Bien" }
+    ],
+    certs: [
+      { when: "2024", role: "Diplôme Universitaire d'Échographie Clinique", org: "FMP Casablanca", text: "" },
+      { when: "2023", role: "ACLS — Advanced Cardiovascular Life Support", org: "Certification internationale", text: "" },
+      { when: "2022", role: "BLS — Basic Life Support", org: "Certification internationale", text: "" }
+    ],
+    pubs: [
+      "« Le pied diabétique aux urgences : profil épidémiologique et prise en charge ». <em>Thèse de Doctorat en Médecine</em>, FMP Casablanca, 2020.",
+      "Communication affichée — <em>Congrès National de Médecine d'Urgence</em>, Marrakech, 2022."
+    ],
+    memberships: [
+      { when: "Depuis 2020", role: "Conseil National de l'Ordre des Médecins (CNOM)", org: "Maroc", text: "" },
+      { when: "Depuis 2021", role: "Société Marocaine de Médecine d'Urgence", org: "Membre", text: "" }
+    ],
+    skills: ["Diagnostic & examen clinique", "Urgences médico-chirurgicales", "Réanimation (BLS / ACLS)", "Échographie clinique (POCUS)", "Suivi des maladies chroniques", "Petite chirurgie & sutures", "Éducation thérapeutique", "Télémédecine"],
+    languages: [["Arabe", "Langue maternelle"], ["Français", "Courant (C1)"], ["Anglais", "Professionnel (B2)"], ["Amazigh", "Notions"]],
+    it: ["Dossier patient informatisé", "Microsoft Office", "PubMed / Zotero"],
+    interests: ["Santé publique", "Bénévolat médical", "Lecture", "Course à pied"],
+    note: "Références disponibles sur demande."
+  },
+
+  /* ------------------------------ العربية ------------------------------ */
+  ar: {
+    dir: "rtl",
+    docTitle: "السيرة الذاتية — د. الاسم العائلي، طبيب",
+    name: "د. الاسم العائلي",
+    title: "طبيب عام — المستعجلات والرعاية الصحية الأولية",
+    subtitle: "دكتوراه في الطب · مسجل(ة) بالهيئة الوطنية للطبيبات والأطباء بالمغرب",
+    location: "الدار البيضاء، المغرب",
+    h: {
+      contact: "معلومات الاتصال", skills: "المهارات السريرية", languages: "اللغات",
+      it: "المعلوميات", interests: "الاهتمامات",
+      profile: "الملف المهني", experience: "الخبرة المهنية",
+      education: "التكوين الأكاديمي", certs: "الشهادات والتكوينات التكميلية",
+      pubs: "المنشورات والمداخلات العلمية", memberships: "الانتماءات المهنية"
+    },
+    profile: "طبيب(ة) عام(ة) حاصل(ة) على الدكتوراه في الطب من كلية الطب والصيدلة بالدار البيضاء، مع خبرة تفوق 5 سنوات في المستشفيات الجامعية وأقسام المستعجلات والرعاية الصحية الأولية. أتميز بالدقة والتعاطف والقدرة على العمل ضمن فريق متعدد التخصصات، وألتزم بتقديم رعاية صحية عالية الجودة مبنية على الأدلة العلمية، مع احترام أخلاقيات المهنة وقواعدها.",
+    experience: [
+      { when: "2023 — الآن", role: "طبيب عام", org: "مصحة خاصة — الدار البيضاء",
+        items: ["استشارات الطب العام (حوالي 40 مريضًا يوميًا)", "تتبع الأمراض المزمنة: السكري، ارتفاع ضغط الدم، الربو", "التنسيق مع الأطباء الأخصائيين وتتبع حالة المرضى"] },
+      { when: "2021 — 2023", role: "طبيب المستعجلات", org: "المركز الاستشفائي الإقليمي — وزارة الصحة والحماية الاجتماعية",
+        items: ["استقبال وفرز وعلاج الحالات المستعجلة الطبية والجراحية", "الإسعافات المستعجلة: الإنعاش القلبي الرئوي، الخياطة، التجبير", "حراسات لمدة 24 ساعة وتأطير الأطباء الداخليين"] },
+      { when: "2020 — 2021", role: "طبيب داخلي", org: "المركز الاستشفائي الجامعي ابن رشد — الدار البيضاء",
+        items: ["تداريب في: الطب الباطني، طب الأطفال، أمراض النساء والتوليد، الجراحة العامة", "المشاركة في الاجتماعات الطبية والزيارات اليومية"] },
+      { when: "2019 — 2020", role: "طبيب متطوع — القوافل الطبية", org: "جمعية إنسانية — المناطق القروية بالأطلس الكبير",
+        items: ["فحوصات مجانية والكشف المبكر عن السكري وارتفاع الضغط"] }
+    ],
+    education: [
+      { when: "2020", role: "الدكتوراه في الطب", org: "كلية الطب والصيدلة بالدار البيضاء — جامعة الحسن الثاني",
+        text: "الأطروحة: «التكفل بالقدم السكرية في المستعجلات» — بميزة مشرف جدًا" },
+      { when: "2013 — 2020", role: "الدراسات الطبية (7 سنوات)", org: "كلية الطب والصيدلة بالدار البيضاء", text: "" },
+      { when: "2013", role: "البكالوريا — شعبة العلوم التجريبية، مسلك علوم الحياة والأرض", org: "ثانوية — الدار البيضاء", text: "بميزة حسن جدًا" }
+    ],
+    certs: [
+      { when: "2024", role: "دبلوم جامعي في الفحص بالصدى السريري", org: "كلية الطب والصيدلة بالدار البيضاء", text: "" },
+      { when: "2023", role: "ACLS — الإنعاش القلبي الوعائي المتقدم", org: "شهادة دولية", text: "" },
+      { when: "2022", role: "BLS — الإسعافات الأولية الأساسية للحياة", org: "شهادة دولية", text: "" }
+    ],
+    pubs: [
+      "«القدم السكرية في المستعجلات: الخصائص الوبائية والتكفل العلاجي». <em>أطروحة لنيل الدكتوراه في الطب</em>، كلية الطب والصيدلة بالدار البيضاء، 2020.",
+      "ملصق علمي — <em>المؤتمر الوطني لطب المستعجلات</em>، مراكش، 2022."
+    ],
+    memberships: [
+      { when: "منذ 2020", role: "الهيئة الوطنية للطبيبات والأطباء", org: "المغرب", text: "" },
+      { when: "منذ 2021", role: "الجمعية المغربية لطب المستعجلات", org: "عضو", text: "" }
+    ],
+    skills: ["التشخيص والفحص السريري", "المستعجلات الطبية والجراحية", "الإنعاش (BLS / ACLS)", "الفحص بالصدى السريري (POCUS)", "تتبع الأمراض المزمنة", "الجراحة الصغرى والخياطة", "التثقيف العلاجي", "الطب عن بعد"],
+    languages: [["العربية", "اللغة الأم"], ["الفرنسية", "بطلاقة (C1)"], ["الإنجليزية", "مستوى مهني (B2)"], ["الأمازيغية", "مبادئ أساسية"]],
+    it: ["الملف الطبي الإلكتروني", "Microsoft Office", "PubMed / Zotero"],
+    interests: ["الصحة العمومية", "العمل التطوعي الطبي", "القراءة", "الجري"],
+    note: "المراجع متوفرة عند الطلب."
+  },
+
+  /* ------------------------------ ENGLISH ------------------------------ */
+  en: {
+    dir: "ltr",
+    docTitle: "CV — Dr. First LAST, Medical Doctor",
+    name: "Dr. First LAST",
+    title: "General Practitioner — Emergency & Primary Care",
+    subtitle: "Doctor of Medicine (MD) · Registered with the National Council of the Moroccan Medical Association",
+    location: "Casablanca, Morocco",
+    h: {
+      contact: "Contact", skills: "Clinical skills", languages: "Languages",
+      it: "IT skills", interests: "Interests",
+      profile: "Professional profile", experience: "Professional experience",
+      education: "Education", certs: "Certifications & further training",
+      pubs: "Publications & presentations", memberships: "Memberships"
+    },
+    profile: "General practitioner holding a Doctor of Medicine degree from the Faculty of Medicine and Pharmacy of Casablanca, with over 5 years of experience in university hospitals, emergency medicine and primary healthcare. Thorough, empathetic and used to working in multidisciplinary teams, I am committed to delivering high-quality, evidence-based care in line with medical ethics and professional standards.",
+    experience: [
+      { when: "2023 — Present", role: "General Practitioner", org: "Private Clinic — Casablanca",
+        items: ["General practice consultations (≈ 40 patients/day)", "Management of chronic diseases: diabetes, hypertension, asthma", "Coordination with specialists and patient follow-up"] },
+      { when: "2021 — 2023", role: "Emergency Physician", org: "Provincial Hospital Centre — Ministry of Health and Social Protection",
+        items: ["Reception, triage and management of medical and surgical emergencies", "Emergency procedures: CPR, suturing, immobilisation", "24-hour on-call shifts and supervision of interns"] },
+      { when: "2020 — 2021", role: "Medical Intern", org: "Ibn Rochd University Hospital — Casablanca",
+        items: ["Rotations: internal medicine, paediatrics, obstetrics & gynaecology, general surgery", "Participation in daily ward rounds and clinical meetings"] },
+      { when: "2019 — 2020", role: "Volunteer Physician — Medical Caravans", org: "Humanitarian association — Rural areas of the High Atlas",
+        items: ["Free consultations and screening for diabetes and hypertension"] }
+    ],
+    education: [
+      { when: "2020", role: "Doctor of Medicine (MD)", org: "Faculty of Medicine and Pharmacy of Casablanca — Hassan II University",
+        text: "Thesis: “Management of the diabetic foot in the emergency department” — Highest honours" },
+      { when: "2013 — 2020", role: "Medical studies (7 years)", org: "Faculty of Medicine and Pharmacy of Casablanca", text: "" },
+      { when: "2013", role: "Baccalaureate in Experimental Sciences — Life & Earth Sciences", org: "High school — Casablanca", text: "With high honours" }
+    ],
+    certs: [
+      { when: "2024", role: "University Diploma in Clinical Ultrasound", org: "FMP Casablanca", text: "" },
+      { when: "2023", role: "ACLS — Advanced Cardiovascular Life Support", org: "International certification", text: "" },
+      { when: "2022", role: "BLS — Basic Life Support", org: "International certification", text: "" }
+    ],
+    pubs: [
+      "“Diabetic foot in the emergency department: epidemiological profile and management”. <em>MD Thesis</em>, FMP Casablanca, 2020.",
+      "Poster presentation — <em>National Congress of Emergency Medicine</em>, Marrakech, 2022."
+    ],
+    memberships: [
+      { when: "Since 2020", role: "National Council of the Moroccan Medical Association (CNOM)", org: "Morocco", text: "" },
+      { when: "Since 2021", role: "Moroccan Society of Emergency Medicine", org: "Member", text: "" }
+    ],
+    skills: ["Clinical diagnosis & examination", "Medical & surgical emergencies", "Resuscitation (BLS / ACLS)", "Point-of-care ultrasound (POCUS)", "Chronic disease management", "Minor surgery & suturing", "Patient education", "Telemedicine"],
+    languages: [["Arabic", "Native"], ["French", "Fluent (C1)"], ["English", "Professional (B2)"], ["Amazigh", "Basic"]],
+    it: ["Electronic health records", "Microsoft Office", "PubMed / Zotero"],
+    interests: ["Public health", "Medical volunteering", "Reading", "Running"],
+    note: "References available upon request."
+  }
+};
+
+/* ============================ RENDU / RENDERING ============================ */
+const icons = {
+  phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/>',
+  mail: '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/>',
+  pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>',
+  link: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+  id: '<rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h2M15 12h2M7 16h10"/>'
+};
+const svg = k => `<svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[k]}</svg>`;
+
+const entries = list => list.map(e => `
+  <div class="entry">
+    <div class="when">${e.when}</div>
+    <div>
+      <h3>${e.role}</h3>
+      ${e.org ? `<div class="org">${e.org}</div>` : ""}
+      ${e.text ? `<p>${e.text}</p>` : ""}
+      ${e.items ? `<ul>${e.items.map(i => `<li>${i}</li>`).join("")}</ul>` : ""}
+    </div>
+  </div>`).join("");
+
+function render(lang) {
+  const c = CONTENT[lang] || CONTENT.fr;
+  const P = PERSON;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = c.dir;
+  document.title = c.docTitle;
+
+  document.getElementById("cv").innerHTML = `
+    <aside>
+      <div class="avatar">${P.photo ? `<img src="${P.photo}" alt="">` : P.initials}</div>
+
+      <h2>${c.h.contact}</h2>
+      <ul class="contact">
+        <li>${svg("phone")}<span dir="ltr">${P.phone}</span></li>
+        <li>${svg("mail")}<span dir="ltr">${P.email}</span></li>
+        <li>${svg("pin")}<span>${c.location}</span></li>
+        <li>${svg("link")}<span dir="ltr">${P.linkedin}</span></li>
+        <li>${svg("id")}<span dir="ltr">${P.cnom}<br>${P.inpe}</span></li>
+      </ul>
+
+      <h2>${c.h.skills}</h2>
+      <ul class="skills">${c.skills.map(s => `<li>${s}</li>`).join("")}</ul>
+
+      <h2>${c.h.languages}</h2>
+      <ul class="lang">${c.languages.map(([l, v], i) => `
+        <li><div class="row"><span>${l}</span><span class="lvl">${v}</span></div>
+        <div class="bar"><i style="width:${P.langLevels[i] ?? 50}%"></i></div></li>`).join("")}
+      </ul>
+
+      <h2>${c.h.it}</h2>
+      <ul class="tags">${c.it.map(s => `<li>${s}</li>`).join("")}</ul>
+
+      <h2>${c.h.interests}</h2>
+      <ul class="tags">${c.interests.map(s => `<li>${s}</li>`).join("")}</ul>
+    </aside>
+
+    <main>
+      <header class="top">
+        <h1 class="name">${c.name}</h1>
+        <p class="title">${c.title}</p>
+        <p class="subtitle">${c.subtitle}</p>
+      </header>
+
+      <h2>${c.h.profile}</h2>
+      <p class="summary">${c.profile}</p>
+
+      <h2>${c.h.experience}</h2>
+      ${entries(c.experience)}
+
+      <h2>${c.h.education}</h2>
+      ${entries(c.education)}
+
+      <h2>${c.h.certs}</h2>
+      ${entries(c.certs)}
+
+      <h2>${c.h.pubs}</h2>
+      <ol class="pubs">${c.pubs.map(p => `<li>${p}</li>`).join("")}</ol>
+
+      <h2>${c.h.memberships}</h2>
+      ${entries(c.memberships)}
+
+      <footer class="note">${c.note}</footer>
+    </main>`;
+
+  document.querySelectorAll("[data-lang]").forEach(b =>
+    b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+  try { localStorage.setItem("cv-lang", lang); } catch (e) {}
+}
+
+function initialLang() {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q && CONTENT[q]) return q;
+  try { const s = localStorage.getItem("cv-lang"); if (s && CONTENT[s]) return s; } catch (e) {}
+  return "fr"; // Français par défaut
+}
+
+document.querySelectorAll("[data-lang]").forEach(b =>
+  b.addEventListener("click", () => {
+    render(b.dataset.lang);
+    history.replaceState(null, "", "?lang=" + b.dataset.lang);
+  }));
+document.getElementById("printBtn").addEventListener("click", () => window.print());
+
+render(initialLang());
+</script>
+</body>
+</html>
